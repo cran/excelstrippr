@@ -6,7 +6,9 @@
 <!-- badges: start -->
 
 [![Travis build
-status](https://travis-ci.com/burch-cm/metastrippr.svg?branch=master)](https://travis-ci.com/burch-cm/metastrippr)
+status](https://travis-ci.com/burch-cm/excelstrippr.svg?branch=main)](https://travis-ci.com/burch-cm/excelstrippr)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/excelstrippr)](https://CRAN.R-project.org/package=excelstrippr)
 <!-- badges: end -->
 
 The goal of excelstrippr is to provide an easy way to remove the
@@ -68,21 +70,25 @@ file, ignoring titles, summaries, and other meta-data in the report.
 ``` r
 library(excelstrippr)
 dat_stripped <- strip_metadata("./man/example/example-report.xlsx")
-#> New names:
-#> * `` -> ...1
-#> * `` -> ...2
-#> * `` -> ...3
-#> * `` -> ...4
-#> * `` -> ...5
-#> * ...
 head(dat_stripped, 10)
-#> # A tibble: 0 x 24
-#> # ... with 24 variables: Region <chr>, LOB <chr>, CC <chr>, `Loc ID` <chr>,
-#> #   `Fac Type` <chr>, `JON/DPN` <chr>, `Doc #` <chr>, Type <chr>, Status <chr>,
-#> #   `Asset Type` <chr>, `Initiated By` <chr>, `Initiate Date` <chr>,
-#> #   Custodian <chr>, Barcode <chr>, `NSN/LSN` <chr>, Description <chr>, `Serial
-#> #   #` <chr>, `Delphi Asset #` <chr>, Cost <chr>, Qty <chr>, `Rejected
-#> #   By` <chr>, `Rej Reason` <chr>, `Rej Date` <chr>, `Test Equip` <chr>
+#> # A tibble: 10 x 24
+#>    Region LOB   CC    `Loc ID` `Fac Type` `JON/DPN` `Doc #` Type  Status
+#>    <chr>  <chr> <chr> <chr>    <chr>      <chr>     <chr>   <chr> <chr> 
+#>  1 Alask~ ATO   40022 APX      EQUIP      <NA>      2019/5~ Add ~ Appro~
+#>  2 Alask~ ATO   40046 APX      EQUIP      <NA>      2019/5~ Add ~ Appro~
+#>  3 Alask~ ATO   40085 APX      EQUIP      <NA>      2019/5~ Add ~ Appro~
+#>  4 Alask~ ATO   40050 APX      ARTCC      <NA>      2019/5~ Add ~ Appro~
+#>  5 Alask~ ATO   40009 APX      ARTCC      <NA>      2019/5~ Add ~ Appro~
+#>  6 Alask~ ATO   40046 APX      ARTCC      <NA>      2019/5~ Add ~ Appro~
+#>  7 Alask~ ATO   40072 APX      ARTCC      <NA>      2019/5~ Add ~ Appro~
+#>  8 Alask~ ATO   40065 APX      ARTCC      <NA>      2019/5~ Add ~ Appro~
+#>  9 Alask~ ATO   40047 IDK      ARTCC      <NA>      2019/5~ Add ~ Appro~
+#> 10 Alask~ ATO   40095 IDK      ARTCC      <NA>      2019/5~ Add ~ Appro~
+#> # ... with 15 more variables: `Asset Type` <chr>, `Initiated By` <chr>,
+#> #   `Initiate Date` <chr>, Custodian <chr>, Barcode <chr>, `NSN/LSN` <chr>,
+#> #   Description <chr>, `Serial #` <chr>, `Delphi Asset #` <chr>, Cost <chr>,
+#> #   Qty <chr>, `Rejected By` <chr>, `Rej Reason` <chr>, `Rej Date` <chr>, `Test
+#> #   Equip` <chr>
 ```
 
 The extracted data can then be saved back into another file for future

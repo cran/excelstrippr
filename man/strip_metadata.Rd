@@ -4,12 +4,15 @@
 \alias{strip_metadata}
 \title{Strip Report MetaData From Excel File}
 \usage{
-strip_metadata(from, ...)
+strip_metadata(from, promote = NA, ...)
 }
 \arguments{
 \item{from}{the file path to the excel report.}
 
-\item{...}{extra parameters to pass to the extract_data function}
+\item{promote}{logical. Should first non-NA row be promoted to column names?
+Default tries to make a reasonable determination.}
+
+\item{...}{extra parameters to pass to the read_excel function}
 }
 \value{
 a data frame containing the tabular data from the report
@@ -20,5 +23,7 @@ Strip Report MetaData From Excel File
 \examples{
 \dontrun{
 strip_metadata("./man/example/example-report")
+# specify a particular sheet
+strip_metadata("my-excel-file.xlsx", sheet = "report summary")
 }
 }

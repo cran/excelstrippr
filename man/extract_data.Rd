@@ -2,36 +2,36 @@
 % Please edit documentation in R/extract_data.R
 \name{extract_data}
 \alias{extract_data}
-\title{Extract Data From a Report}
+\title{Extract Data from a Report}
 \usage{
 extract_data(
   .df,
   checkcol = NA,
   promote_colnames = TRUE,
-  strip_na_greater_than = 0.2
+  strip_na_greater_than = 0.75
 )
 }
 \arguments{
 \item{.df}{a data frame object.}
 
-\item{checkcol}{numeric. (optional). The column number to check for NA values.
+\item{checkcol}{numeric. The column number to check for NA values.
 If not specified, extract_data will attempt to guess the appropriate column.}
 
-\item{promote_colnames}{logical. (optional). Should the first row be promoted
-to column names?}
+\item{promote_colnames}{logical. Should the first row be promoted to column names?}
 
-\item{strip_na_greater_than}{double between 0 - 1. Drops rows with greater than this percentage of missing values. Defaults to 0.2}
+\item{strip_na_greater_than}{double between 0 - 1. Drops rows with greater than this percentage of missing values. Defaults to 0.75, or 75 percent or greater missing values}
 }
 \value{
 a data frame object.
 }
 \description{
-Extract Data From a Report
+Extract Data from a Report
 }
 \examples{
-\dontrun{
-df <- readxl::read_excel("man/example/example-report.xlsx")
+df <- data.frame(`...1` = c("Excel Report", NA, NA, NA),
+                 `...2` = c(NA, "X", "x_1", "x_2"),
+                 `...3` = c(NA, "Y", "y_1", "y_2"),
+                 `...4` = c(NA, "Z", "z_1", "z_2"))
 extract_data(df)
-}
 
 }
